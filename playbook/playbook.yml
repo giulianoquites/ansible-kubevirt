@@ -5,7 +5,7 @@
   tasks:
 
     - name: shell
-      shell: oc login -u "{{ openshift_admin_user }}" -p "{{ openshift_admin_password }}" "{{ openshift_host }}"  
+      shell: oc login -u "{{ openshift_admin_user }}" -p "{{ openshift_admin_password }}" "{{ openshift_host }}" --insecure-skip-tls-verify
 
     - name: Create my first VM
       kubevirt.core.kubevirt_vm:
