@@ -1,0 +1,25 @@
+---
+- name: Ansible Playbook 1
+  hosts: localhost
+  connection: local
+  tasks:
+
+    - name: Log in (obtain access token)
+      redhat.openshift.openshift_auth:
+        username: admin
+        password: rgjkdKz9RVp3
+      register: openshift_auth_results
+
+    - name: Create my first VM
+      kubevirt.core.kubevirt_vm:
+        namespace: vmexamples
+        name: vm1
+        cpu_cores: 1
+        memory: 4Gi
+        disks:
+          - name: containerdisk
+            volume:
+              containerDisk:
+                image: kubevirt/cirros-container-disk-demo:latest
+            disk:
+              bus: virtio
