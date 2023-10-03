@@ -8,7 +8,7 @@
       shell: oc login -u "{{ openshift_admin_user }}" -p "{{ openshift_admin_password }}" "{{ openshift_host }}" --insecure-skip-tls-verify
 
     - name: Create my first VM
-      kubevirt.core.kubevirt_vm:
+      kubevirt_vm:
         namespace: vmexamples
         name: vm1
         cpu_cores: 1
