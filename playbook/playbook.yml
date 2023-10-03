@@ -4,6 +4,9 @@
   connection: local
   tasks:
 
+    - name: shell
+      shell: pip3 install requests 
+
     - name: Log in (obtain access token)
       redhat.openshift.openshift_auth:
         username: "{{ openshift_admin_user }}"
