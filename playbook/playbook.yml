@@ -5,14 +5,7 @@
   tasks:
 
     - name: shell
-      shell: pip3 install requests 
-
-    - name: Log in (obtain access token)
-      redhat.openshift.openshift_auth:
-        username: "{{ openshift_admin_user }}"
-        password: "{{ openshift_admin_password }}"
-        host: "{{ openshift_host }}"
-      register: openshift_auth_results
+      shell: oc login -u "{{ openshift_admin_user }}" -p "{{ openshift_admin_password }}" "{{ openshift_host }}"  
 
     - name: Create my first VM
       kubevirt.core.kubevirt_vm:

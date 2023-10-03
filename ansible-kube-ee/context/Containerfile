@@ -75,5 +75,6 @@ RUN /output/scripts/install-from-bindep && rm -rf /output/wheels
 RUN echo This is a post-install command!
 RUN microdnf install -y crypto-policies-scripts
 RUN update-crypto-policies --set DEFAULT:AD-SUPPORT
+RUN pip3 install requests
 RUN rm -rf /output
 LABEL ansible-execution-environment=true
